@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team | Digital Age Consultants Ltd</title>
+    <meta name="description"
+        content="Meet our team of seasoned Management driving excellence in consulting, training, and strategy at Digital Age Consultants Ltd.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="shortcut icon" href="images/logoo.png" type="image/png">
+
+    <style>
+        :root {
+            --primary: #051405;
+            --primary-light: #0d2e0d;
+            --secondary: #15b400;
+            --secondary-dark: #0c8200;
+            --accent: #d4ff00;
+            --bg-light: #f4faf4;
+            --surface: rgba(255, 255, 255, 0.85);
+            --text-dark: #0f1c0f;
+            --text-muted: #4b5e4b;
+            --border: rgba(21, 180, 0, 0.15);
+            --glass-bg: rgba(255, 255, 255, 0.95);
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 15px -3px rgba(21, 180, 0, 0.05);
+            --shadow-lg: 0 20px 25px -5px rgba(21, 180, 0, 0.1);
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-muted);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .ambient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, var(--bg-light) 0%, #e6f9e6 100%);
+            overflow: hidden;
+        }
+
+        .ambient-shape {
+            position: absolute;
+            filter: blur(100px);
+            opacity: 0.4;
+            border-radius: 50%;
+            animation: drift 20s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .shape-a {
+            width: 500px;
+            height: 500px;
+            background: var(--accent);
+            top: -100px;
+            right: -200px;
+        }
+
+        .shape-b {
+            width: 400px;
+            height: 400px;
+            background: var(--secondary);
+            bottom: -100px;
+            left: -100px;
+            animation-delay: -10s;
+        }
+
+        @keyframes drift {
+            from {
+                transform: translate(0, 0) scale(1);
+            }
+
+            to {
+                transform: translate(-100px, 100px) scale(1.2);
+            }
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Outfit', sans-serif;
+            color: var(--text-dark);
+        }
+
+        /* NAVBAR */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+            padding: 0.75rem 0;
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            z-index: 1001;
+        }
+
+        .logo img {
+            height: 55px;
+            transition: var(--transition);
+            filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.1));
+        }
+
+        .logo-text {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+        }
+
+        .logo-text .sub-text {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            background: var(--secondary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 1.05rem;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--secondary));
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--secondary);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-link .fa-chevron-down {
+            font-size: 0.7rem;
+            transition: var(--transition);
+        }
+
+        .nav-item:hover .nav-link .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            min-width: 260px;
+            background: white;
+            border-radius: var(--radius-md);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+            border: 1px solid var(--border);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(-50%) translateY(10px);
+            transition: var(--transition);
+            padding: 0.75rem 0;
+            z-index: 100;
+        }
+
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 0.6rem 1.5rem;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+
+        .dropdown a:hover {
+            background: rgba(21, 180, 0, 0.08);
+            color: var(--secondary);
+            padding-left: 2rem;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 6px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        /* PAGE HEADER */
+        .page-header {
+            margin-top: 80px;
+            padding: 8rem 2rem 5rem;
+            background: var(--primary);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: -150px;
+            right: -100px;
+            width: 500px;
+            height: 500px;
+            background: var(--accent);
+            border-radius: 50%;
+            filter: blur(150px);
+            opacity: 0.3;
+        }
+
+        .page-header::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            background: var(--secondary);
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.2;
+        }
+
+        .page-header h1 {
+            color: white;
+            font-size: clamp(3rem, 4vw, 4.5rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-header h1 span {
+            color: var(--accent);
+        }
+
+        .page-header p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 500;
+        }
+
+        /* TEAM GRID */
+        .team-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .team-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .team-intro .section-tag {
+            color: var(--secondary);
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            display: inline-block;
+            background: rgba(21, 180, 0, 0.1);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            margin-bottom: 1.5rem;
+        }
+
+        .team-intro h2 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .team-intro p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .team-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .team-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .team-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+
+        .team-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .team-photo {
+            width: 100%;
+            height: 340px;
+            overflow: hidden;
+            position: relative;
+            background: var(--primary);
+        }
+
+        .team-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            filter: grayscale(15%);
+        }
+
+        .team-card:hover .team-photo img {
+            transform: scale(1.1);
+            filter: grayscale(0%);
+        }
+
+        .team-photo::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(5, 20, 5, 0.4) 0%, transparent 50%);
+        }
+
+        .team-info {
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .team-info h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 0.25rem;
+        }
+
+        .team-credentials {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 0.75rem;
+        }
+
+        .team-role {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            color: var(--primary);
+            padding: 0.4rem 1.25rem;
+            border-radius: 50px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* CEO - Feature Card */
+        .team-card.featured {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+        }
+
+        .team-card.featured .team-photo {
+            height: 100%;
+            min-height: 400px;
+        }
+
+        .team-card.featured .team-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+            padding: 3rem;
+        }
+
+        .team-card.featured .team-info h3 {
+            font-size: 2rem;
+        }
+
+        .team-card.featured .team-role {
+            align-self: flex-start;
+        }
+
+        .team-card.featured .team-bio {
+            margin-top: 1.5rem;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-muted);
+        }
+
+        /* FOOTER */
+        .footer {
+            background: var(--primary);
+            color: white;
+            padding: 7rem 2rem 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 5rem;
+            max-width: 1400px;
+            margin: 0 auto 5rem;
+        }
+
+        .footer-brand h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: white;
+        }
+
+        .footer-brand img {
+            height: 45px;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 400px;
+            margin-bottom: 2.5rem;
+            font-size: 1.1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.25rem;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: var(--transition);
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        .social-link:hover {
+            background: var(--secondary);
+            border-color: var(--secondary);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 20px rgba(21, 180, 0, 0.4);
+        }
+
+        .footer-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 2.5rem;
+            color: var(--accent);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .footer-links a::before {
+            content: '→';
+            color: var(--secondary);
+            opacity: 0;
+            transform: translateX(-15px);
+            transition: var(--transition);
+            font-weight: bold;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+            transform: translateX(10px);
+        }
+
+        .footer-links a:hover::before {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 2.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 1rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .team-card.featured {
+                grid-template-columns: 1fr;
+            }
+
+            .team-card.featured .team-info {
+                text-align: center;
+            }
+
+            .team-card.featured .team-role {
+                align-self: center;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                background: var(--primary);
+                flex-direction: column;
+                justify-content: center;
+                transition: var(--transition);
+                padding: 2rem;
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .nav-link {
+                color: white !important;
+                font-size: 1.5rem;
+            }
+
+            .nav-item:hover .dropdown {
+                position: static;
+                transform: none;
+                opacity: 1;
+                visibility: visible;
+                background: rgba(255, 255, 255, 0.1);
+                box-shadow: none;
+                border: none;
+                min-width: auto;
+            }
+
+            .dropdown a {
+                color: rgba(255, 255, 255, 0.8);
+            }
+
+            .dropdown a:hover {
+                background: rgba(255, 255, 255, 0.1);
+                color: var(--accent);
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -7px);
+            }
+
+            .page-header {
+                padding: 7rem 1.5rem 3.5rem;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center;
+            }
+        }
+
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ambient-bg">
+        <div class="ambient-shape shape-a"></div>
+        <div class="ambient-shape shape-b"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logoo.png" alt="Digital Age Consultants Logo">
+                <span class="logo-text">Digital Age
+                    <span class="sub-text">Consultants Ltd</span>
+                </span>
+            </a>
+
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="index.html#services" class="nav-link">Services</a></li>
+                <li class="nav-item">
+                    <a href="training.html" class="nav-link">Training <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown">
+                        <a href="training.html#communication_skills">Communication Skills</a>
+                        <a href="training.html#finance_and_accounting">Finance & Accounting</a>
+                        <a href="training.html#internal_audit">Internal Audit</a>
+                        <a href="training.html#tax-management">Tax Management</a>
+                        <a href="training.html#ict">Information Technology</a>
+                        <a href="training.html#investment">Investment</a>
+                        <a href="training.html#leadership">Leadership & Management</a>
+                        <a href="training.html#strategy">Strategy & Planning</a>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li class="nav-item"><a href="team.html" class="nav-link active">Team</a></li>
+                <li class="nav-item"><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>Our Management <span>Team</span></h1>
+        <p>Meet the dedicated experts driving excellence and innovation at Digital Age Consultants Ltd.</p>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-container">
+        <div class="team-intro reveal">
+            <span class="section-tag">Our People</span>
+            <h2>Digital Age Management Team</h2>
+            <p>Our team combines decades of experience across management consulting, strategy, finance, and technology
+                to deliver world-class solutions.</p>
+        </div>
+
+        <div class="team-grid">
+            <!-- CEO - Featured -->
+            <div class="team-card featured reveal">
+                <div class="team-photo">
+                    <img src="team/ceo.jpeg" alt="Bimbola F. S. Ekunnusi - Founder/CEO">
+                </div>
+                <div class="team-info">
+                    <h3>Bimbola F. S. Ekunnusi</h3>
+                    <p class="team-credentials">Ph.D, ANIMN, ACIIN, ANIM</p>
+                    <span class="team-role">Founder / CEO</span>
+                    <p class="team-bio">A visionary leader with extensive expertise in management consulting,
+                        organizational development, and strategic advisory. Under her leadership, Digital Age
+                        Consultants has grown into a premier consulting firm delivering excellence across Nigeria and
+                        internationally.</p>
+                </div>
+            </div>
+
+            <!-- Team Member 2 -->
+            <div class="team-card reveal">
+                <div class="team-photo">
+                    <img src="team/dickson.jpeg" alt="Dickson Abimbola Akinola">
+                </div>
+                <div class="team-info">
+                    <h3>Dickson Abimbola Akinola</h3>
+                    <p class="team-credentials">B.Sc., M.P.A., RN, EdD.</p>
+                    <span class="team-role">Chief Adviser / Executive Director, International Training & Strategy</span>
+                </div>
+            </div>
+
+            <!-- Team Member 3 -->
+            <div class="team-card reveal">
+                <div class="team-photo">
+                    <img src="team/blessing.jpeg" alt="Blessing Damilola Ekunnusi">
+                </div>
+                <div class="team-info">
+                    <h3>Blessing Damilola Ekunnusi</h3>
+                    <p class="team-credentials">&nbsp;</p>
+                    <span class="team-role">Executive Director, Strategy / Training</span>
+                </div>
+            </div>
+
+            <!-- Team Member 4 -->
+            <div class="team-card reveal">
+                <div class="team-photo">
+                    <img src="team/aina.jpeg" alt="Aina Oluwaseun E">
+                </div>
+                <div class="team-info">
+                    <h3>Aina Oluwaseun E.</h3>
+                    <p class="team-credentials">&nbsp;</p>
+                    <span class="team-role">Executive Director, Human Resource</span>
+                </div>
+            </div>
+
+            <!-- Team Member 5 -->
+            <div class="team-card reveal">
+                <div class="team-photo">
+                    <img src="team/taiwo.jpeg" alt="Taiwo Ekunnusi">
+                </div>
+                <div class="team-info">
+                    <h3>Taiwo Ekunnusi</h3>
+                    <p class="team-credentials">&nbsp;</p>
+                    <span class="team-role">Manager, Training</span>
+                </div>
+            </div>
+
+            <!-- Team Member 6 -->
+            <div class="team-card reveal">
+                <div class="team-photo">
+                    <img src="team/kehinde.jpeg" alt="Kehinde Temitope Ekunnusi">
+                </div>
+                <div class="team-info">
+                    <h3>Kehinde Temitope Ekunnusi</h3>
+                    <p class="team-credentials">&nbsp;</p>
+                    <span class="team-role">Operation Manager</span>
+                </div>
+            </div>
+
+            <!-- Team Member 7 -->
+            <div class="team-card reveal">
+                <div class="team-photo">
+                    <img src="team/adeyemi.jpeg" alt="Adeyemi Afolabi">
+                </div>
+                <div class="team-info">
+                    <h3>Adeyemi Afolabi</h3>
+                    <p class="team-credentials">&nbsp;</p>
+                    <span class="team-role">Marketing Manager</span>
+                </div>
+            </div>
+
+            <!-- Team Member 8 -->
+            <div class="team-card reveal">
+                <div class="team-photo">
+                    <img src="team/kitilope.jpeg" alt="Kitilope Aiyegbusi">
+                </div>
+                <div class="team-info">
+                    <h3>Kitilope Aiyegbusi</h3>
+                    <p class="team-credentials">&nbsp;</p>
+                    <span class="team-role">Manager, ICT</span>
+                </div>
+            </div>
+
+            <!-- Team Member 9 -->
+            <div class="team-card reveal">
+                <div class="team-photo">
+                    <img src="team/joshua.jpeg" alt="Joshua Afolabi">
+                </div>
+                <div class="team-info">
+                    <h3>Joshua Afolabi</h3>
+                    <p class="team-credentials">&nbsp;</p>
+                    <span class="team-role">Manager, Strategy</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2><img src="images/logoo.png" alt="Logo"> Digital Age</h2>
+                <p>A world-class consulting organization delivering excellence in management, financial services,
+                    strategy, and training across Nigeria and internationally.</p>
+                <div class="social-links">
+                    <a href="https://mobile.facebook.com/DigitalAgeConsultantsLTD" target="_blank"
+                        class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/DAConsultants" target="_blank" class="social-link"><i
+                            class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/company/digital-age-consultants-ltd" target="_blank"
+                        class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.youtube.com/channel/UCFhe1f8EtYgHBySij0sUfyg" target="_blank"
+                        class="social-link"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div>
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#services">Our Services</a></li>
+                    <li><a href="training.html">Training Programs</a></li>
+                    <li><a href="gallery.html">Gallery & Events</a></li>
+                    <li><a href="team.html">Our Team</a></li>
+                    <li><a href="index.html#contact">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="footer-title">Top Services</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html#services">Capacity Building</a></li>
+                    <li><a href="index.html#services">Strategy Consulting</a></li>
+                    <li><a href="index.html#services">International Training</a></li>
+                    <li><a href="index.html#services">Business Turnaround</a></li>
+                    <li><a href="index.html#services">Recruitment</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Digital Age Consultants Ltd. All rights reserved.</p>
+            <p>Designed with excellence.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Scroll Reveal
+        function reveal() {
+            document.querySelectorAll('.reveal').forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                if (elementTop < window.innerHeight - 100) {
+                    el.classList.add('active');
+                }
+            });
+        }
+        window.addEventListener('scroll', reveal);
+        window.addEventListener('load', reveal);
+    </script>
+</body>
+
+</html>

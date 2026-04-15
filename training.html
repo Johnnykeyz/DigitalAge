@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Programmes | Digital Age Consultants Ltd</title>
+    <meta name="description" content="Explore our comprehensive training programmes in management, finance, IT, leadership, and more. On-request and negotiable options available.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="images/logoo.png" type="image/png">
+   
+    <style>
+        :root {
+            --primary: #051405;
+            --primary-light: #0d2e0d;
+            --secondary: #15b400;
+            --secondary-dark: #0c8200;
+            --accent: #d4ff00;
+            --bg-light: #f4faf4;
+            --surface: rgba(255, 255, 255, 0.85);
+            --text-dark: #0f1c0f;
+            --text-muted: #4b5e4b;
+            --border: rgba(21, 180, 0, 0.15);
+            --glass-bg: rgba(255, 255, 255, 0.95);
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 15px -3px rgba(21, 180, 0, 0.05);
+            --shadow-lg: 0 20px 25px -5px rgba(21, 180, 0, 0.1);
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-muted);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .ambient-bg {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, var(--bg-light) 0%, #e6f9e6 100%);
+            overflow: hidden;
+        }
+        .ambient-shape {
+            position: absolute; filter: blur(100px); opacity: 0.4;
+            border-radius: 50%; animation: drift 20s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .shape-a { width: 500px; height: 500px; background: var(--accent); top: -100px; right: -200px; }
+        .shape-b { width: 400px; height: 400px; background: var(--secondary); bottom: -100px; left: -100px; animation-delay: -10s; }
+        @keyframes drift { from { transform: translate(0,0) scale(1); } to { transform: translate(-100px,100px) scale(1.2); } }
+
+        h1, h2, h3, h4, h5, h6 { font-family: 'Outfit', sans-serif; color: var(--text-dark); }
+
+        /* NAVBAR */
+        .navbar {
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+            background: var(--glass-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border); box-shadow: var(--shadow-sm);
+            padding: 0.75rem 0; transition: var(--transition);
+        }
+        .nav-container {
+            max-width: 1400px; margin: 0 auto; padding: 0 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo { display: flex; align-items: center; gap: 1rem; text-decoration: none; z-index: 1001; }
+        .logo img { height: 55px; transition: var(--transition); filter: drop-shadow(0 2px 5px rgba(0,0,0,0.1)); }
+        .logo-text {
+            font-family: 'Outfit', sans-serif; font-size: 1.6rem; font-weight: 800;
+            color: var(--primary); letter-spacing: -0.5px; line-height: 1.1;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .logo-text .sub-text {
+            display: block; font-size: 0.9rem; color: var(--secondary); font-weight: 600;
+            background: var(--secondary); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .nav-menu { display: flex; list-style: none; gap: 2rem; align-items: center; }
+        .nav-item { position: relative; }
+        .nav-link {
+            text-decoration: none; color: var(--text-dark); font-family: 'Outfit', sans-serif;
+            font-weight: 600; font-size: 1.05rem; position: relative; padding: 0.5rem 0;
+            transition: var(--transition); display: flex; align-items: center; gap: 0.4rem;
+        }
+        .nav-link::after {
+            content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--secondary));
+            transition: var(--transition); border-radius: 2px;
+        }
+        .nav-link:hover, .nav-link.active { color: var(--secondary); }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+        .nav-link .fa-chevron-down { font-size: 0.7rem; transition: var(--transition); }
+        .nav-item:hover .nav-link .fa-chevron-down { transform: rotate(180deg); }
+
+        /* Dropdown */
+        .dropdown {
+            position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+            min-width: 260px; background: white; border-radius: var(--radius-md);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12); border: 1px solid var(--border);
+            opacity: 0; visibility: hidden; transform: translateX(-50%) translateY(10px);
+            transition: var(--transition); padding: 0.75rem 0; z-index: 100;
+        }
+        .nav-item:hover .dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+        .dropdown a {
+            display: block; padding: 0.6rem 1.5rem; color: var(--text-dark); text-decoration: none;
+            font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 0.95rem;
+            transition: var(--transition); white-space: nowrap;
+        }
+        .dropdown a:hover { background: rgba(21,180,0,0.08); color: var(--secondary); padding-left: 2rem; }
+
+        .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 6px; z-index: 1001; }
+        .hamburger span { width: 30px; height: 3px; background: var(--primary); border-radius: 2px; transition: var(--transition); }
+
+        /* PAGE HEADER */
+        .page-header {
+            margin-top: 80px; padding: 8rem 2rem 5rem; background: var(--primary);
+            text-align: center; position: relative; overflow: hidden; color: white;
+        }
+        .page-header::before {
+            content: ''; position: absolute; top: -150px; right: -100px;
+            width: 500px; height: 500px; background: var(--accent);
+            border-radius: 50%; filter: blur(150px); opacity: 0.3;
+        }
+        .page-header::after {
+            content: ''; position: absolute; bottom: -100px; left: -100px;
+            width: 400px; height: 400px; background: var(--secondary);
+            border-radius: 50%; filter: blur(120px); opacity: 0.2;
+        }
+        .page-header h1 {
+            color: white; font-size: clamp(3rem, 4vw, 4.5rem); font-weight: 800;
+            margin-bottom: 1rem; position: relative; z-index: 1;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        .page-header h1 span { color: var(--accent); text-shadow: 0 0 15px rgba(212, 255, 0, 0.4); }
+        .page-header p {
+            font-size: 1.3rem; color: rgba(255,255,255,0.85); max-width: 700px; margin: 0 auto;
+            position: relative; z-index: 1; font-family: 'Outfit', sans-serif; font-weight: 500;
+        }
+
+        /* SIDEBAR NAV */
+        .training-layout {
+            max-width: 1400px; margin: 0 auto; padding: 4rem 2rem;
+            display: grid; grid-template-columns: 300px 1fr; gap: 3rem;
+        }
+        .sidebar {
+            position: sticky; top: 100px; height: fit-content;
+            background: white; border-radius: var(--radius-lg); padding: 1.5rem;
+            box-shadow: var(--shadow-md); border: 1px solid var(--border);
+        }
+        .sidebar h3 {
+            font-size: 1.2rem; font-weight: 800; margin-bottom: 1.5rem;
+            padding-bottom: 1rem; border-bottom: 2px solid var(--border);
+            color: var(--primary);
+        }
+        .sidebar-link {
+            display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem;
+            color: var(--text-muted); text-decoration: none; border-radius: 10px;
+            font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 0.95rem;
+            transition: var(--transition); margin-bottom: 0.3rem;
+        }
+        .sidebar-link i { font-size: 0.85rem; color: var(--secondary); width: 20px; text-align: center; }
+        .sidebar-link:hover, .sidebar-link.active {
+            background: rgba(21,180,0,0.1); color: var(--secondary); transform: translateX(5px);
+        }
+        .sidebar-link.active { background: linear-gradient(135deg, var(--secondary), var(--primary-light)); color: white; }
+        .sidebar-link.active i { color: var(--accent); }
+
+        /* TRAINING SECTIONS */
+        .training-section {
+            background: white; border-radius: var(--radius-lg); padding: 3rem;
+            margin-bottom: 2.5rem; box-shadow: var(--shadow-md); border: 1px solid var(--border);
+            transition: var(--transition); scroll-margin-top: 110px;
+        }
+        .training-section:hover { box-shadow: var(--shadow-lg); }
+        .section-heading {
+            display: flex; align-items: center; gap: 1.25rem; margin-bottom: 2rem;
+            padding-bottom: 1.5rem; border-bottom: 2px dashed var(--border);
+        }
+        .section-icon {
+            width: 60px; height: 60px; border-radius: 16px;
+            background: linear-gradient(135deg, rgba(21,180,0,0.15), rgba(212,255,0,0.15));
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.8rem; color: var(--secondary); flex-shrink: 0;
+        }
+        .section-heading h2 { font-size: 1.8rem; font-weight: 800; }
+        .section-heading p { font-size: 1rem; color: var(--text-muted); margin-top: 0.25rem; }
+
+        /* TABLE */
+        .course-table {
+            width: 100%; border-collapse: separate; border-spacing: 0;
+            border-radius: var(--radius-md); overflow: hidden;
+        }
+        .course-table thead th {
+            background: var(--primary); color: white; padding: 1rem 1.25rem;
+            font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.95rem;
+            text-transform: uppercase; letter-spacing: 1px; text-align: left;
+        }
+        .course-table thead th:first-child { border-radius: var(--radius-md) 0 0 0; }
+        .course-table thead th:last-child { border-radius: 0 var(--radius-md) 0 0; }
+        .course-table tbody tr { transition: var(--transition); }
+        .course-table tbody tr:nth-child(even) { background: rgba(21,180,0,0.03); }
+        .course-table tbody tr:hover { background: rgba(21,180,0,0.08); transform: scale(1.005); }
+        .course-table tbody td {
+            padding: 0.85rem 1.25rem; border-bottom: 1px solid rgba(21,180,0,0.08);
+            font-size: 0.95rem; color: var(--text-dark);
+        }
+        .course-table tbody td:first-child { font-weight: 600; font-family: 'Outfit', sans-serif; }
+        .course-table tbody td .fa-check-circle { color: var(--secondary); font-size: 1.1rem; }
+
+        /* FOOTER */
+        .footer {
+            background: var(--primary); color: white; padding: 7rem 2rem 3rem;
+            position: relative; overflow: hidden;
+        }
+        .footer::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+        }
+        .footer-grid {
+            display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 5rem;
+            max-width: 1400px; margin: 0 auto 5rem;
+        }
+        .footer-brand h2 {
+            font-family: 'Outfit', sans-serif; font-size: 2.2rem; font-weight: 800;
+            margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; color: white;
+        }
+        .footer-brand img { height: 45px; }
+        .footer-brand p { color: rgba(255,255,255,0.7); max-width: 400px; margin-bottom: 2.5rem; font-size: 1.1rem; }
+        .social-links { display: flex; gap: 1.25rem; }
+        .social-link {
+            width: 45px; height: 45px; background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: white; transition: var(--transition); text-decoration: none; font-size: 1.2rem;
+        }
+        .social-link:hover {
+            background: var(--secondary); border-color: var(--secondary);
+            transform: translateY(-5px) scale(1.1); box-shadow: 0 10px 20px rgba(21,180,0,0.4);
+        }
+        .footer-title { font-family: 'Outfit', sans-serif; font-size: 1.4rem; font-weight: 700; margin-bottom: 2.5rem; color: var(--accent); }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 1.25rem; }
+        .footer-links a {
+            color: rgba(255,255,255,0.7); text-decoration: none; transition: var(--transition);
+            display: inline-flex; align-items: center; gap: 0.75rem; font-size: 1.1rem; font-weight: 500;
+        }
+        .footer-links a::before { content: '→'; color: var(--secondary); opacity: 0; transform: translateX(-15px); transition: var(--transition); font-weight: bold; }
+        .footer-links a:hover { color: var(--accent); transform: translateX(10px); }
+        .footer-links a:hover::before { opacity: 1; transform: translateX(0); }
+        .footer-bottom {
+            max-width: 1400px; margin: 0 auto; padding-top: 2.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1); display: flex;
+            justify-content: space-between; align-items: center; color: rgba(255,255,255,0.5); font-size: 1rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .training-layout { grid-template-columns: 1fr; }
+            .sidebar { position: static; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .hamburger { display: flex; }
+            .nav-menu {
+                position: fixed; top: 0; right: -100%; width: 100%; height: 100vh;
+                background: var(--primary); flex-direction: column; justify-content: center;
+                transition: var(--transition); padding: 2rem;
+            }
+            .nav-menu.active { right: 0; }
+            .nav-link { color: white !important; font-size: 1.5rem; }
+            .nav-item:hover .dropdown { position: static; transform: none; opacity: 1; visibility: visible; background: rgba(255,255,255,0.1); box-shadow: none; border: none; min-width: auto; }
+            .dropdown a { color: rgba(255,255,255,0.8); }
+            .dropdown a:hover { background: rgba(255,255,255,0.1); color: var(--accent); }
+            .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+            .hamburger.active span:nth-child(2) { opacity: 0; }
+            .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+            .page-header { padding: 7rem 1.5rem 3.5rem; }
+            .training-section { padding: 1.5rem; }
+            .course-table { font-size: 0.85rem; }
+            .course-table thead th, .course-table tbody td { padding: 0.6rem 0.75rem; }
+            .footer-grid { grid-template-columns: 1fr; gap: 4rem; }
+            .footer-bottom { flex-direction: column; gap: 1.5rem; text-align: center; }
+        }
+
+        /* Animations */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+    <div class="ambient-bg">
+        <div class="ambient-shape shape-a"></div>
+        <div class="ambient-shape shape-b"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logoo.png" alt="Digital Age Consultants Logo">
+                <span class="logo-text">Digital Age
+                    <span class="sub-text">Consultants Ltd</span>
+                </span>
+            </a>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="index.html#services" class="nav-link">Services</a></li>
+                <li class="nav-item">
+                    <a href="training.html" class="nav-link active">Training <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown">
+                        <a href="training.html#communication_skills">Communication Skills</a>
+                        <a href="training.html#finance_and_accounting">Finance & Accounting</a>
+                        <a href="training.html#internal_audit">Internal Audit</a>
+                        <a href="training.html#tax-management">Tax Management</a>
+                        <a href="training.html#ict">Information Technology</a>
+                        <a href="training.html#investment">Investment</a>
+                        <a href="training.html#leadership">Leadership & Management</a>
+                        <a href="training.html#strategy">Strategy & Planning</a>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li class="nav-item"><a href="team.html" class="nav-link">Team</a></li>
+                <li class="nav-item"><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>Training <span>Programmes</span></h1>
+        <p>Comprehensive professional development courses designed to elevate organizational performance across every discipline.</p>
+    </section>
+
+    <!-- Training Content -->
+    <div class="training-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <h3><i class="fas fa-list-ul"></i> Course Categories</h3>
+            <a href="#communication_skills" class="sidebar-link active"><i class="fas fa-comments"></i> Communication Skills</a>
+            <a href="#finance_and_accounting" class="sidebar-link"><i class="fas fa-calculator"></i> Finance & Accounting</a>
+            <a href="#internal_audit" class="sidebar-link"><i class="fas fa-search-dollar"></i> Internal Audit</a>
+            <a href="#tax-management" class="sidebar-link"><i class="fas fa-file-invoice-dollar"></i> Tax Management</a>
+            <a href="#ict" class="sidebar-link"><i class="fas fa-laptop-code"></i> Information Technology</a>
+            <a href="#investment" class="sidebar-link"><i class="fas fa-chart-line"></i> Investment</a>
+            <a href="#leadership" class="sidebar-link"><i class="fas fa-users-cog"></i> Leadership & Management</a>
+            <a href="#strategy" class="sidebar-link"><i class="fas fa-chess"></i> Strategy & Planning</a>
+        </aside>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Communication Skills -->
+            <div id="communication_skills" class="training-section reveal">
+                <div class="section-heading">
+                    <div class="section-icon"><i class="fas fa-comments"></i></div>
+                    <div>
+                        <h2>Communication Skills Courses</h2>
+                        <p>Master the art of professional communication</p>
+                    </div>
+                </div>
+                <table class="course-table">
+                    <thead><tr><th>Course Title</th><th>On Request</th><th>Negotiable</th></tr></thead>
+                    <tbody>
+                        <tr><td>Speech/Memo/Report Writing Skills</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Use of English in Memo/Speech/Report Writing Skills</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Advanced Communication Skills</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Interdepartmental/Memo Writing Skills</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Interpersonal Communication Skills</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Interpersonal Communication Skills – Fast Track</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Technical Report Writing</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Report Writing Skills in Public Sector</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Good Governance/Management Skills</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Fundamentals of Business Writing</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Facilitation Skills: Managing Group Dynamics</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Conducting Productive Meeting</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Using the Telephone Professionally</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Strategic Communication for Senior Officials</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Finance and Accounting -->
+            <div id="finance_and_accounting" class="training-section reveal">
+                <div class="section-heading">
+                    <div class="section-icon"><i class="fas fa-calculator"></i></div>
+                    <div>
+                        <h2>Finance & Accounting Courses</h2>
+                        <p>Professional financial expertise and certification</p>
+                    </div>
+                </div>
+                <table class="course-table">
+                    <thead><tr><th>Course Title</th><th>On Request</th><th>Negotiable</th></tr></thead>
+                    <tbody>
+                        <tr><td>Finance for Non-Finance Professionals</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Financial Management Certificate</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Professional Skills for Finance and Accounting</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Financial Analysis Workshop: A Hands-on Approach</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Financial Modeling: Valuations, Mergers and Acquisitions</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Efficient Finance and Accounting Operations</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Net Generation Excel for Business Applications</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Mastering Business and Financial Reporting</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Fast Closing Monthly and Year-End Accounts</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Effective Budgeting and Cost Control</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Certificate in Cost Management</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>International Financial Reporting Standard (IFRS)</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Financial Accounting and Reporting</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Certified Fixed Assets Professional</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Corporate Finance</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Corporate Governance: Transparency and Accountability</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Implementation of IPSAS</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Budget Performance Monitoring and Reporting</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Public Financial Management</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Strategic Finance for Corporate Managers</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Internal Audit -->
+            <div id="internal_audit" class="training-section reveal">
+                <div class="section-heading">
+                    <div class="section-icon"><i class="fas fa-search-dollar"></i></div>
+                    <div>
+                        <h2>Internal Audit Courses</h2>
+                        <p>Strengthen controls and compliance frameworks</p>
+                    </div>
+                </div>
+                <table class="course-table">
+                    <thead><tr><th>Course Title</th><th>On Request</th><th>Negotiable</th></tr></thead>
+                    <tbody>
+                        <tr><td>Effective Internal Auditing</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Risk-Based Auditing</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Maximizing Value for Internal Audit</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Skills for Fraud Detecting in Financial Transactions</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Essential Skills For Today's Auditor</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Financial and Managerial Audit</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Internal Audit Risk Analysis and Techniques</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Internal Audit Report Writing</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Performance Auditing in the Government Sector</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Essentials Of Forensic Audit</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>The Role of Internal Audit in Anti-Money Laundering</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Averting Financial and Economic Fraud</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Advanced Forensic Auditing and Accounting</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Tax Management -->
+            <div id="tax-management" class="training-section reveal">
+                <div class="section-heading">
+                    <div class="section-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                    <div>
+                        <h2>Tax Management Courses</h2>
+                        <p>Expert tax compliance and administration training</p>
+                    </div>
+                </div>
+                <table class="course-table">
+                    <thead><tr><th>Course Title</th><th>On Request</th><th>Negotiable</th></tr></thead>
+                    <tbody>
+                        <tr><td>Tax Compliance Risk Management</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Management of Large Taxpayers</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Practical Tax Audit and Documentation</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Tax Business Process and Record Keeping</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Business Intelligence & Procedures</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Understanding Compliance Strategies</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Managing & Improving Tax Compliance</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Effective Taxpayer Audit</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Risk Management and Taxpayer Service</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Transfer Pricing Issues in International Taxation</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Risk Management for Tax Administrators</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- ICT -->
+            <div id="ict" class="training-section reveal">
+                <div class="section-heading">
+                    <div class="section-icon"><i class="fas fa-laptop-code"></i></div>
+                    <div>
+                        <h2>Information / Communication Technology</h2>
+                        <p>Modern IT skills for the digital workplace</p>
+                    </div>
+                </div>
+                <table class="course-table">
+                    <thead><tr><th>Course Title</th><th>On Request</th><th>Negotiable</th></tr></thead>
+                    <tbody>
+                        <tr><td>ICT Application Workshop</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Managing Your IT Projects Successfully</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Master Class Microsoft Office® Professional</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Computer Appreciation for Senior Executives</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Utilizing Internet Technology for Improved Job Performance</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Enhancing Business Performance Through Social Media</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Website Design, Development & Management</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Computer Networking and Security</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Information System Security Management</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Understanding and Implementing E-Payment System</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Microsoft Project and Primavera P6</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Investment -->
+            <div id="investment" class="training-section reveal">
+                <div class="section-heading">
+                    <div class="section-icon"><i class="fas fa-chart-line"></i></div>
+                    <div>
+                        <h2>Investment Courses</h2>
+                        <p>Portfolio management and financial services expertise</p>
+                    </div>
+                </div>
+                <table class="course-table">
+                    <thead><tr><th>Course Title</th><th>On Request</th><th>Negotiable</th></tr></thead>
+                    <tbody>
+                        <tr><td>Asset and Liability Management</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Effective Branch Management</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Credit Administration and Management</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Product / Services Development and Management</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Customer Relationship Management in Insurance</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Portfolio Risk Management</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Leadership -->
+            <div id="leadership" class="training-section reveal">
+                <div class="section-heading">
+                    <div class="section-icon"><i class="fas fa-users-cog"></i></div>
+                    <div>
+                        <h2>Leadership & Management Courses</h2>
+                        <p>Develop world-class leadership capabilities</p>
+                    </div>
+                </div>
+                <table class="course-table">
+                    <thead><tr><th>Course Title</th><th>On Request</th><th>Negotiable</th></tr></thead>
+                    <tbody>
+                        <tr><td>Senior Management Strategy</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>The Leadership Excellence Program</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Effective Leadership</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Certified Professional Manager</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Capacity and Team Building</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Advanced Supervisory Skills</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Coaching and Counseling for Peak Performance</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Leading and Managing Change</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Strategic Planning and Management</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Effective Project Management</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Behavioural Management and Emotional Intelligence</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>High Performance Leadership</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Innovative Thinking for Organisational Growth</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Leadership Coaching & Mentoring</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Value Based Leadership</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Strategy -->
+            <div id="strategy" class="training-section reveal">
+                <div class="section-heading">
+                    <div class="section-icon"><i class="fas fa-chess"></i></div>
+                    <div>
+                        <h2>Strategy & Planning Courses</h2>
+                        <p>Strategic thinking for organizational excellence</p>
+                    </div>
+                </div>
+                <table class="course-table">
+                    <thead><tr><th>Course Title</th><th>On Request</th><th>Negotiable</th></tr></thead>
+                    <tbody>
+                        <tr><td>Strategic Planning & Implementation</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Strategic Management for Senior Executives</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Business Process Re-Engineering</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Quality Assurance and Productivity</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Procurement and Contract Management</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Supply Chain Management and Logistics</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Monitoring and Evaluation Frameworks</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                        <tr><td>Result-Based Management</td><td><i class="fas fa-check-circle"></i></td><td><i class="fas fa-check-circle"></i></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2><img src="images/logoo.png" alt="Logo"> Digital Age</h2>
+                <p>A world-class consulting organization delivering excellence in management, financial services, strategy, and training across Nigeria and internationally.</p>
+                <div class="social-links">
+                    <a href="https://mobile.facebook.com/DigitalAgeConsultantsLTD" target="_blank" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/DAConsultants" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/company/digital-age-consultants-ltd" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.youtube.com/channel/UCFhe1f8EtYgHBySij0sUfyg" target="_blank" class="social-link"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div>
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#services">Our Services</a></li>
+                    <li><a href="training.html">Training Programs</a></li>
+                    <li><a href="gallery.html">Gallery & Events</a></li>
+                    <li><a href="team.html">Our Team</a></li>
+                    <li><a href="index.html#contact">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="footer-title">Top Services</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html#services">Capacity Building</a></li>
+                    <li><a href="index.html#services">Strategy Consulting</a></li>
+                    <li><a href="index.html#services">International Training</a></li>
+                    <li><a href="index.html#services">Business Turnaround</a></li>
+                    <li><a href="index.html#services">Recruitment</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Digital Age Consultants Ltd. All rights reserved.</p>
+            <p>Designed with excellence.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Sidebar active state
+        const sidebarLinks = document.querySelectorAll('.sidebar-link');
+        const sections = document.querySelectorAll('.training-section');
+
+        function updateActiveSidebar() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+            sidebarLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        window.addEventListener('scroll', updateActiveSidebar);
+
+        // Scroll Reveal
+        function reveal() {
+            document.querySelectorAll('.reveal').forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                if (elementTop < window.innerHeight - 100) {
+                    el.classList.add('active');
+                }
+            });
+        }
+        window.addEventListener('scroll', reveal);
+        window.addEventListener('load', reveal);
+    </script>
+</body>
+</html>
