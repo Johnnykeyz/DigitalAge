@@ -943,7 +943,7 @@
         // Mobile Menu
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.getElementById('navMenu');
-        const navLinks = document.querySelectorAll('.nav-link');
+        const navLinks = document.querySelectorAll('#navMenu a');
 
         hamburger.addEventListener('click', () => {
             hamburger.classList.toggle('active');
@@ -951,9 +951,15 @@
         });
 
         navLinks.forEach(link => {
-            link.addEventListener('click', () => {
+            link.addEventListener('click', function() {
                 hamburger.classList.remove('active');
                 navMenu.classList.remove('active');
+                
+                const dropdown = this.closest('.dropdown');
+                if (dropdown) {
+                    dropdown.style.display = 'none';
+                    setTimeout(() => { dropdown.style.display = ''; }, 150);
+                }
             });
         });
 
