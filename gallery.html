@@ -1,27 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery | Digital Age Consultants Ltd</title>
     <meta name="description" content="Explore our training facilities, events, and successful projects across Nigeria.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="shortcut icon" href="images/logoo.png" type="image/png">
-   
+
     <style>
         :root {
-            --primary: #051405; /* Deep dark green */
+            --primary: #051405;
+            /* Deep dark green */
             --primary-light: #0d2e0d;
-            --secondary: #15b400; /* Rich Green */
+            --secondary: #15b400;
+            /* Rich Green */
             --secondary-dark: #0c8200;
-            --accent: #d4ff00; /* Lemon */
+            --accent: #d4ff00;
+            /* Lemon */
             --bg-light: #f4faf4;
             --surface: rgba(255, 255, 255, 0.85);
             --text-dark: #0f1c0f;
             --text-muted: #4b5e4b;
             --border: rgba(21, 180, 0, 0.15);
-            
+
             --glass-bg: rgba(255, 255, 255, 0.95);
             --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
             --shadow-md: 0 10px 15px -3px rgba(21, 180, 0, 0.05);
@@ -35,7 +41,8 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            word-wrap: break-word; overflow-wrap: break-word;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         html {
@@ -54,11 +61,15 @@
         /* Abstract Background */
         .ambient-bg {
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             z-index: -1;
             background: linear-gradient(135deg, var(--bg-light) 0%, #e6f9e6 100%);
             overflow: hidden;
         }
+
         .ambient-shape {
             position: absolute;
             filter: blur(100px);
@@ -66,15 +77,40 @@
             border-radius: 50%;
             animation: drift 20s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .shape-a { width: 500px; height: 500px; background: var(--accent); top: -100px; right: -200px; }
-        .shape-b { width: 400px; height: 400px; background: var(--secondary); bottom: -100px; left: -100px; animation-delay: -10s; }
-        
-        @keyframes drift {
-            from { transform: translate(0, 0) scale(1); }
-            to { transform: translate(-100px, 100px) scale(1.2); }
+
+        .shape-a {
+            width: 500px;
+            height: 500px;
+            background: var(--accent);
+            top: -100px;
+            right: -200px;
         }
 
-        h1, h2, h3, h4, h5, h6 {
+        .shape-b {
+            width: 400px;
+            height: 400px;
+            background: var(--secondary);
+            bottom: -100px;
+            left: -100px;
+            animation-delay: -10s;
+        }
+
+        @keyframes drift {
+            from {
+                transform: translate(0, 0) scale(1);
+            }
+
+            to {
+                transform: translate(-100px, 100px) scale(1.2);
+            }
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             font-family: 'Outfit', sans-serif;
             color: var(--text-dark);
         }
@@ -115,7 +151,7 @@
         .logo img {
             height: 55px;
             transition: var(--transition);
-            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.1));
+            filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.1));
         }
 
         .logo-text {
@@ -185,7 +221,7 @@
             min-width: 260px;
             background: white;
             border-radius: var(--radius-md);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
             border: 1px solid var(--border);
             opacity: 0;
             visibility: hidden;
@@ -194,11 +230,13 @@
             padding: 0.75rem 0;
             z-index: 100;
         }
+
         .nav-item:hover .dropdown {
             opacity: 1;
             visibility: visible;
             transform: translateX(-50%) translateY(0);
         }
+
         .dropdown a {
             display: block;
             padding: 0.6rem 1.5rem;
@@ -210,8 +248,9 @@
             transition: var(--transition);
             white-space: nowrap;
         }
+
         .dropdown a:hover {
-            background: rgba(21,180,0,0.08);
+            background: rgba(21, 180, 0, 0.08);
             color: var(--secondary);
             padding-left: 2rem;
         }
@@ -228,11 +267,13 @@
             border-radius: 2px;
         }
 
-        .nav-link:hover, .nav-link.active {
+        .nav-link:hover,
+        .nav-link.active {
             color: var(--secondary);
         }
 
-        .nav-link:hover::after, .nav-link.active::after {
+        .nav-link:hover::after,
+        .nav-link.active::after {
             width: 100%;
         }
 
@@ -283,7 +324,7 @@
             margin-bottom: 1rem;
             position: relative;
             z-index: 1;
-            text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
 
         .page-header h1 span {
@@ -448,7 +489,7 @@
             transform: translate(-50%, -50%) scale(0);
             width: 70px;
             height: 70px;
-            background: rgba(255,255,255,0.2);
+            background: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(10px);
             border: 2px solid var(--accent);
             border-radius: 50%;
@@ -458,7 +499,7 @@
             color: var(--accent);
             font-size: 1.8rem;
             transition: var(--transition);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
 
         .gallery-item:hover .gallery-icon {
@@ -501,7 +542,7 @@
             border-radius: 8px;
             box-shadow: var(--shadow-lg);
             object-fit: contain;
-            border: 2px solid rgba(255,255,255,0.05);
+            border: 2px solid rgba(255, 255, 255, 0.05);
         }
 
         .lightbox-close {
@@ -519,7 +560,7 @@
             cursor: pointer;
             font-size: 1.4rem;
             transition: var(--transition);
-            border: 1px solid rgba(255,255,255,0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .lightbox-close:hover {
@@ -544,7 +585,7 @@
             cursor: pointer;
             font-size: 1.8rem;
             transition: var(--transition);
-            border: 1px solid rgba(255,255,255,0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .lightbox-nav:hover {
@@ -554,8 +595,13 @@
             transform: translateY(-50%) scale(1.1);
         }
 
-        .lightbox-prev { left: -80px; }
-        .lightbox-next { right: -80px; }
+        .lightbox-prev {
+            left: -80px;
+        }
+
+        .lightbox-next {
+            right: -80px;
+        }
 
         .lightbox-info {
             position: absolute;
@@ -588,11 +634,13 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .footer::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0;
+            top: 0;
+            left: 0;
+            right: 0;
             height: 4px;
             background: linear-gradient(90deg, var(--secondary), var(--accent));
         }
@@ -724,6 +772,7 @@
             .hamburger {
                 display: flex;
             }
+
             .nav-menu {
                 position: fixed;
                 top: 0;
@@ -736,20 +785,25 @@
                 transition: var(--transition);
                 padding: 2rem;
             }
+
             .nav-menu.active {
                 right: 0;
             }
+
             .nav-link {
                 color: white !important;
                 font-size: 1.5rem;
             }
+
             .hamburger.active span:nth-child(1) {
                 transform: rotate(45deg) translate(5px, 5px);
                 background: white;
             }
+
             .hamburger.active span:nth-child(2) {
                 opacity: 0;
             }
+
             .hamburger.active span:nth-child(3) {
                 transform: rotate(-45deg) translate(7px, -7px);
                 background: white;
@@ -760,27 +814,43 @@
                 transform: none;
                 opacity: 1;
                 visibility: visible;
-                background: rgba(255,255,255,0.1);
+                background: rgba(255, 255, 255, 0.1);
                 box-shadow: none;
                 border: none;
                 min-width: auto;
                 padding: 0.5rem 0;
             }
-            .dropdown a { color: rgba(255,255,255,0.8); }
-            .dropdown a:hover { background: rgba(255,255,255,0.1); color: var(--accent); }
-            
+
+            .dropdown a {
+                color: rgba(255, 255, 255, 0.8);
+            }
+
+            .dropdown a:hover {
+                background: rgba(255, 255, 255, 0.1);
+                color: var(--accent);
+            }
+
             .page-header {
                 padding: 7rem 1.5rem 3.5rem;
             }
-            
-            .lightbox-prev { left: 10px; }
-            .lightbox-next { right: 10px; }
-            .lightbox-info { bottom: -90px; }
-            
+
+            .lightbox-prev {
+                left: 10px;
+            }
+
+            .lightbox-next {
+                right: 10px;
+            }
+
+            .lightbox-info {
+                bottom: -90px;
+            }
+
             .footer-grid {
                 grid-template-columns: 1fr;
                 gap: 4rem;
             }
+
             .footer-bottom {
                 flex-direction: column;
                 gap: 1.5rem;
@@ -794,53 +864,86 @@
                 opacity: 0;
                 transform: scale(0.9) translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: scale(1) translateY(0);
             }
         }
+
         .animate-item {
             animation: fadeInScale 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
             opacity: 0;
         }
-    
+
         /* MOBILE FIXES TO PREVENT HORIZONTAL SCROLL AND CENTRALIZE */
         @media (max-width: 768px) {
-            html, body { width: 100%; overflow-x: hidden; }
-            .services-grid, .training-list, .team-grid, .gallery-grid, .stats-grid {
+
+            html,
+            body {
+                width: 100%;
+                overflow-x: hidden;
+            }
+
+            .services-grid,
+            .training-list,
+            .team-grid,
+            .gallery-grid,
+            .stats-grid {
                 grid-template-columns: 1fr !important;
                 gap: 1.5rem !important;
             }
+
             .contact-wrapper {
                 grid-template-columns: 1fr !important;
                 gap: 2rem !important;
             }
-            .service-card, .training-category, .team-info {
+
+            .service-card,
+            .training-category,
+            .team-info {
                 padding: 1.5rem !important;
             }
+
             .hero-btns {
                 flex-direction: column;
                 align-items: stretch;
             }
+
             .btn {
                 width: 100%;
                 text-align: center;
             }
+
             .section {
                 padding: 4rem 1.5rem !important;
             }
+
             .container {
                 width: 100%;
                 padding: 0 !important;
             }
-            .page-header h1 { font-size: 2.2rem !important; }
-            .gallery-title { font-size: 1.1rem !important; }
-            h1, h2, h3 { overflow-wrap: break-word; word-break: break-word; }
+
+            .page-header h1 {
+                font-size: 2.2rem !important;
+            }
+
+            .gallery-title {
+                font-size: 1.1rem !important;
+            }
+
+            h1,
+            h2,
+            h3 {
+                overflow-wrap: break-word;
+                word-break: break-word;
+            }
         }
     </style>
 </head>
+
 <body>
-    
+
     <div class="ambient-bg">
         <div class="ambient-shape shape-a"></div>
         <div class="ambient-shape shape-b"></div>
@@ -855,7 +958,7 @@
                     <span class="sub-text">Consultants Ltd</span>
                 </span>
             </a>
-            
+
             <ul class="nav-menu" id="navMenu">
                 <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
                 <li class="nav-item"><a href="index.html#services" class="nav-link">Services</a></li>
@@ -888,7 +991,8 @@
     <!-- Page Header -->
     <section class="page-header">
         <h1>Our <span>Gallery</span></h1>
-        <p>Explore our cutting-edge training facilities, transformative events, and successful strategic projects across Nigeria and internationally.</p>
+        <p>Explore our cutting-edge training facilities, transformative events, and successful strategic projects across
+            Nigeria and internationally.</p>
     </section>
 
     <!-- Gallery Filter -->
@@ -896,6 +1000,7 @@
         <div class="filter-buttons">
             <button class="filter-btn active" data-filter="all">All Photos</button>
             <button class="filter-btn" data-filter="world-bank">World Bank Representative</button>
+            <button class="filter-btn" data-filter="proj-tmax">Project Tmax</button>
             <button class="filter-btn" data-filter="training-hub">Training Hub</button>
             <button class="filter-btn" data-filter="events">Events & Workshops</button>
             <button class="filter-btn" data-filter="projects">Strategic Projects</button>
@@ -935,15 +1040,20 @@
         <div class="footer-grid">
             <div class="footer-brand">
                 <h2><img src="images/logoo.png" alt="Logo"> Digital Age</h2>
-                <p>A world-class consulting organization delivering excellence in management, financial services, strategy, and training across Nigeria and internationally.</p>
+                <p>A world-class consulting organization delivering excellence in management, financial services,
+                    strategy, and training across Nigeria and internationally.</p>
                 <div class="social-links">
-                    <a href="https://mobile.facebook.com/DigitalAgeConsultantsLTD" target="_blank" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://twitter.com/DAConsultants" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.linkedin.com/company/digital-age-consultants-ltd" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://www.youtube.com/channel/UCFhe1f8EtYgHBySij0sUfyg" target="_blank" class="social-link"><i class="fab fa-youtube"></i></a>
+                    <a href="https://mobile.facebook.com/DigitalAgeConsultantsLTD" target="_blank"
+                        class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/DAConsultants" target="_blank" class="social-link"><i
+                            class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/company/digital-age-consultants-ltd" target="_blank"
+                        class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.youtube.com/channel/UCFhe1f8EtYgHBySij0sUfyg" target="_blank"
+                        class="social-link"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
-            
+
             <div>
                 <h3 class="footer-title">Quick Links</h3>
                 <ul class="footer-links">
@@ -986,10 +1096,10 @@
         });
 
         navLinks.forEach(link => {
-            link.addEventListener('click', function() {
+            link.addEventListener('click', function () {
                 hamburger.classList.remove('active');
                 navMenu.classList.remove('active');
-                
+
                 const dropdown = this.closest('.dropdown');
                 if (dropdown) {
                     dropdown.style.display = 'none';
@@ -1011,6 +1121,16 @@
             { src: 'images/19.jpg', title: 'World Bank Stakeholder Meeting', category: 'world-bank' },
             { src: 'images/20.jpg', title: 'World Bank Project Review', category: 'world-bank' },
             { src: 'images/21.jpg', title: 'World Bank Partnership Signing', category: 'world-bank' },
+            //Project Emax
+            { src: 'images/25.jpg', title: 'Project Tmax', category: 'proj-tmax' },
+            { src: 'images/26.jpg', title: 'Project Tmax', category: 'proj-tmax' },
+            { src: 'images/27.jpg', title: 'Project Tmax', category: 'proj-tmax' },
+            { src: 'images/28.jpg', title: 'Project Tmax', category: 'proj-tmax' },
+            { src: 'images/29.jpg', title: 'Project Tmax', category: 'proj-tmax' },
+            { src: 'images/30.jpg', title: 'Project Tmax', category: 'proj-tmax' },
+            { src: 'images/31.jpg', title: 'Project Tmax', category: 'proj-tmax' },
+            { src: 'images/32.jpg', title: 'Project Tmax', category: 'proj-tmax' },
+            { src: 'images/33.jpg', title: 'Project Tmax', category: 'proj-tmax' },
             // Training Hub
             { src: 'images/3.jpg', title: 'Digital Age Training Hub', category: 'training-hub' },
             { src: 'images/1.jpg', title: 'Conference Hall Setup', category: 'training-hub' },
@@ -1034,9 +1154,9 @@
 
         function renderGallery(filter = 'all') {
             galleryGrid.innerHTML = '';
-            
-            const filteredData = filter === 'all' 
-                ? galleryData 
+
+            const filteredData = filter === 'all'
+                ? galleryData
                 : galleryData.filter(item => item.category === filter);
 
             filteredData.forEach((item, index) => {
@@ -1054,7 +1174,7 @@
                         <i class="fas fa-expand"></i>
                     </div>
                 `;
-                
+
                 galleryItem.addEventListener('click', () => openLightbox(index));
                 galleryGrid.appendChild(galleryItem);
             });
@@ -1084,10 +1204,10 @@
         let filteredGalleryData = [];
 
         function openLightbox(index) {
-            filteredGalleryData = currentFilter === 'all' 
-                ? galleryData 
+            filteredGalleryData = currentFilter === 'all'
+                ? galleryData
                 : galleryData.filter(item => item.category === currentFilter);
-            
+
             currentImageIndex = index;
             updateLightbox();
             lightbox.classList.add('active');
@@ -1120,7 +1240,7 @@
         lightboxClose.addEventListener('click', closeLightbox);
         lightboxNext.addEventListener('click', nextImage);
         lightboxPrev.addEventListener('click', prevImage);
-        
+
         lightbox.addEventListener('click', (e) => {
             if (e.target === lightbox) closeLightbox();
         });
@@ -1136,4 +1256,5 @@
         renderGallery();
     </script>
 </body>
+
 </html>
